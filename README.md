@@ -1,25 +1,17 @@
 # FutureWork Admin
 
-Public frontend repository for the FutureWork administration web application.
+Administration frontend: https://depocen-cased.github.io/fw-dev/
 
-## Status
+## Authentication
 
-Synthetic interface prototype is live at https://depocen-cased.github.io/fw-dev/. It includes a sample identity review queue, report filters and in-memory demonstration history. CSV download has been removed in favor of a stable Google Sheets output. The report update button remains disabled pending authentication, authorized source reading and publisher acceptance; the output workbook currently has headers and a not-updated status only. All records are fictional and all sample changes reset on reload.
+The page starts at an application-account login screen. Google sign-in is not required for operators. The server verifies the password and creates an expiring, revocable session. Report and identity records are fetched only after server authentication; the public frontend contains no account password, password hash, bearer token or record fixture.
 
-Google sign-in is configured against an isolated Apps Script authentication probe. Real login, browser transport, read/audit and revocation acceptance tests remain pending. The server access allowlist starts empty. Identity verification alone does not grant data access. No student records or production source spreadsheets are connected. The debug token verifier is for this prototype only; local tests do not establish production readiness.
+## Current status
 
-## Planned architecture
+Local-account login, protected synthetic-data loading, test Sheet reading, test audit and logout have been exercised in the browser. Production source readers, identity decisions and Google Sheets report publishing are not enabled. Sample actions remain demonstrations.
 
-- GitHub Pages: static web interface, currently main/root with automatic publication on commits.
-- Google Apps Script: authenticated API and synchronization, subject to real integration tests.
-- Google Sheets: existing sources and separately controlled operational data.
+Reports have separate attendance, assignment and session-summary views. A fixed output workbook has been initialized privately; no student records are published here.
 
 ## Public repository boundary
 
-Only reviewed application code and synthetic test fixtures may be committed here. Never commit student records, spreadsheet exports, tokens, passwords, private configuration, internal backend documents, or backups.
-
-Authorization must be checked by the backend for every read, write, and export. Hiding interface controls is not authorization.
-
-## Integration acceptance
-
-Before real data is enabled, test Google sign-in with both personal and work accounts, server-side permissions, audit attribution, browser transport and access revocation. Keep production sources unchanged during testing.
+Commit reviewed frontend code only. Do not commit credentials, source spreadsheet IDs, student records, exports, internal backend documentation or backups. GitHub Pages publishes main/root automatically. Backend authorization is required for every data operation. A shared account identifies the account, not an individual colleague.
