@@ -6,7 +6,7 @@ Public frontend repository for the FutureWork administration web application.
 
 Synthetic interface prototype is live at https://depocen-cased.github.io/fw-dev/. It includes a sample identity review queue, report filters, CSV export and in-memory demonstration history. All records are fictional and all sample changes reset on reload.
 
-Google sign-in and backend are not configured or deployed. The sign-in button reports this explicitly. No student records or source spreadsheets are connected. Local backend tests are not evidence of successful real Google login.
+Google sign-in is configured against an isolated Apps Script authentication probe. Real login, browser transport, read/audit and revocation acceptance tests remain pending. The server access allowlist starts empty. Identity verification alone does not grant data access. No student records or production source spreadsheets are connected. The debug token verifier is for this prototype only; local tests do not establish production readiness.
 
 ## Planned architecture
 
