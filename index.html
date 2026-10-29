@@ -120,5 +120,5 @@ $('open-auth').onclick=()=>{$('auth-result').textContent='';authStatus('Bạn đ
 for(const [id,action] of [['read-probe','read_fixture'],['audit-probe','audit_probe']])$(id).onclick=async()=>{try{$(id).disabled=true;const data=await callProbe(action);$('auth-result').textContent=JSON.stringify(data,null,2);authStatus(action==='audit_probe'?'Đã ghi sự kiện thử.':'Đã đọc bảng thử.')}catch(_){/* callProbe clears private UI */}finally{$(id).disabled=false}};
 $('close-auth').onclick=()=>$('auth-dialog').close();for(const eventName of ['pointerdown','keydown'])document.addEventListener(eventName,touchSession,{passive:true});window.addEventListener('pagehide',()=>clearSession());
 </script>
-<script src="review.js?v=2"></script>
+<script src="review.js?v=3"></script>
 </body></html>
